@@ -40,10 +40,17 @@ Mở trang **nhanh.ghn.vn**, click vào icon tiện ích và bật toggle **Đan
 
 ## 🚀 Tính năng của tiện ích
 
-- **KÍCH THƯỚC**: Hiển thị kích thước kiện hàng (DxRxC) ngay trên bảng danh sách đơn hàng
-- **PHÂN LOẠI**: Tự động gắn nhãn màu: **Tiktok hoàn hàng** / **Shopee hàng hoàn** / **Shop**
-- **TỰ ĐỘNG**: Chạy nền, không cần thao tác thủ công — chỉ cần bật một lần là xong
-- **BẬT/TẮT**: Có thể tắt bất cứ lúc nào từ popup, tất cả nhãn được xóa sạch ngay lập tức
+Dưới đây là các tính năng chính đã được tích hợp (hoạt động hoàn toàn tự động dưới nền):
+
+- 📦 **Tự động đóng kiện (Auto Packing):** Phát hiện lỗi mã "innhom", tự động cuộn đến đơn hàng tương ứng, hoàn tất đóng kiện, phát âm thanh báo hiệu và tự động bấm "In tem".
+- 🗑️ **Xóa hàng loạt (Bulk Delete):** Thêm nút "Xóa Tất Cả" để thao tác xóa nhanh nhiều đơn hàng cùng lúc thông qua hộp kiểm (checkbox), đồng thời tự động mở khóa các hộp kiểm bị vô hiệu hóa.
+- 👁️ **Ẩn nút tạo phiếu thu (Hide Receipt):** Tự động ẩn các nút "Tạo phiếu thu" trong danh sách giúp giao diện gọn gàng hơn và tránh bấm nhầm.
+- 🔍 **Kiểm tra đơn hàng (Order Checker):** Hỗ trợ kiểm đếm kiện hàng "ĐH Chờ Trả" thông qua thao tác quét mã vạch, tự động đếm và phát âm thanh báo hiệu theo tiến độ quét.
+- 🏷️ **Hiển thị kích thước & Phân loại đơn (Order Info):**
+  - **Kích thước**: Hiển thị trực tiếp Size kiện hàng (DxRxC) ngay trên bảng danh sách.
+  - **Phân loại**: Tự động gắn nhãn màu (Badge) phân biệt rõ: **Tiktok hoàn hàng** (Đỏ) / **Shopee hàng hoàn** (Cam) / **Shop** (Xám).
+- 🔔 **Cảnh báo đủ kiện hàng (Package Alert):** Liên tục theo dõi tiến độ quét đơn. Tự động phát âm thanh thông báo "Thành công" khi hệ thống ghi nhận đã thu thập đủ tất cả các kiện hàng.
+- ⚙️ **Quản lý dạng Module:** Tất cả tính năng đều có thể bật/tắt (Toggle) độc lập theo ý muốn từ giao diện (Popup) của tiện ích.
 
 ---
 
