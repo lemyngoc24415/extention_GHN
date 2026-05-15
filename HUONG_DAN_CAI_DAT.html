@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng dẫn cài đặt — GHN Helper Pro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --red: #e53e3e;
+    --orange: #f6892e;
+    --bg: #0f0f12;
+    --surface: #18181f;
+    --surface2: #22222d;
+    --border: #2e2e3e;
+    --text: #e8e8f0;
+    --muted: #7a7a9a;
+    --accent: #f6892e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1a0a00 0%, #0f0f12 60%);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(246,137,46,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .logo-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 0 24px rgba(246,137,46,.4);
+  }
+  header h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 800;
+    letter-spacing: -.5px;
+  }
+  header h1 span { color: var(--orange); }
+  header p {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ── NOTICE BOX ── */
+  .notice {
+    background: rgba(246,137,46,.08);
+    border: 1px solid rgba(246,137,46,.3);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .notice-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .notice p { font-size: 13.5px; color: #d4a96a; }
+  .notice strong { color: var(--orange); }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+
+  /* ── STEPS ── */
+  .steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    align-items: start;
+    transition: border-color .2s, transform .15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .step::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    opacity: 0;
+    transition: opacity .2s;
+  }
+  .step:hover { border-color: rgba(246,137,46,.4); transform: translateY(-2px); }
+  .step:hover::before { opacity: 1; }
+
+  .step-num {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, rgba(229,62,62,.2), rgba(246,137,46,.2));
+    border: 1px solid rgba(246,137,46,.3);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .step-body h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .step-body p {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .step-body p + p { margin-top: 8px; }
+
+  /* code inline */
+  code {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--orange);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 12.5px;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* URL bar mockup */
+  .url-bar {
+    margin-top: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .url-bar span.dot { display: flex; gap: 5px; }
+  .url-bar span.dot i {
+    width: 10px; height: 10px; border-radius: 50%;
+    display: inline-block;
+  }
+  .url-bar .url-text {
+    color: #8a9eff;
+    font-family: monospace;
+    font-size: 12.5px;
+    background: none;
+    border: none;
+    outline: none;
+    flex: 1;
+    cursor: text;
+    user-select: all;
+  }
+
+  /* toggle mockup */
+  .toggle-demo {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .toggle-track {
+    width: 42px; height: 22px;
+    background: #2ecc71;
+    border-radius: 11px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .toggle-track::after {
+    content: '';
+    position: absolute;
+    top: 3px; right: 3px;
+    width: 16px; height: 16px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+  }
+
+  /* file folder visual */
+  .folder-visual {
+    margin-top: 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .folder-visual .folder-name {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: #e8c87a;
+    margin-bottom: 8px;
+  }
+  .folder-visual .file-list { padding-left: 24px; }
+  .folder-visual .file-list li {
+    list-style: none;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 2;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .folder-visual .file-list li::before { content: '📄'; font-size: 12px; }
+  .folder-visual .file-list li.js::before { content: '⚙️'; }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 48px;
+  }
+  .highlight-box h2 {
+    font-size: 17px; font-weight: 700;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .highlight-box ul { padding-left: 0; }
+  .highlight-box ul li {
+    list-style: none;
+    font-size: 13.5px;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 10px; align-items: start;
+  }
+  .highlight-box ul li:last-child { border-bottom: none; }
+  .highlight-box ul li .badge {
+    background: rgba(246,137,46,.15);
+    border: 1px solid rgba(246,137,46,.3);
+    color: var(--orange);
+    font-size: 10px; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px;
+    white-space: nowrap; flex-shrink: 0;
+    letter-spacing: .5px;
+    margin-top: 2px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  footer span { color: var(--orange); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .step { grid-template-columns: 1fr; }
+    .step-num { width: 40px; height: 40px; font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo-icon">📦</div>
+    <div>
+      <h1>GHN Helper <span>Pro</span></h1>
+    </div>
+  </div>
+  <p>Hướng dẫn cài đặt tiện ích mở rộng — chỉ mất khoảng <strong style="color:#f6892e">2 phút</strong></p>
+</header>
+
+<main>
+
+  <div class="notice">
+    <span class="notice-icon">💡</span>
+    <p>Tiện ích này <strong>chưa được đăng lên Chrome Web Store</strong> nên cần bật chế độ Developer để cài. Đây là cách cài phổ biến cho các công cụ nội bộ và hoàn toàn an toàn.</p>
+  </div>
+
+  <p class="section-title">Các bước thực hiện</p>
+
+  <div class="steps">
+
+    <!-- STEP 1 -->
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>📁 Giải nén thư mục tiện ích</h3>
+        <p>Giải nén file <code>.zip</code> bạn nhận được ra một thư mục cố định trên máy tính. <strong style="color:#f6892e">Không xóa thư mục này sau khi cài</strong> — Chrome cần nó để chạy tiện ích.</p>
+        <div class="folder-visual">
+          <div class="folder-name">📂 GHN-Helper-Pro/</div>
+          <ul class="file-list">
+            <li>manifest.json</li>
+            <li>popup.html</li>
+            <li class="js">popup.js</li>
+            <li class="js">content.js</li>
+            <li class="js">inject.js</li>
+            <li>HUONG_DAN_CAI_DAT.html ← (file này)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>🔧 Mở trang quản lý Extension của Chrome</h3>
+        <p>Mở Chrome, copy đường dẫn dưới đây dán vào thanh địa chỉ rồi nhấn <code>Enter</code>:</p>
+        <div class="url-bar">
+          <span class="dot">
+            <i style="background:#ff5f57"></i>
+            <i style="background:#ffbd2e"></i>
+            <i style="background:#28ca41"></i>
+          </span>
+          <input class="url-text" value="chrome://extensions" readonly onclick="this.select()">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>🛠️ Bật chế độ Developer</h3>
+        <p>Ở góc trên bên phải trang Extensions, bật toggle <strong style="color:#fff">"Developer mode"</strong> lên.</p>
+        <p style="color:#6a6a8a; font-size:12.5px">Sau khi bật, sẽ xuất hiện thêm 3 nút mới ở phía trên trang.</p>
+        <div class="toggle-demo">
+          <div class="toggle-track"></div>
+          <span>Developer mode — <strong style="color:#2ecc71">BẬT</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>📂 Nhấn "Load unpacked" và chọn thư mục</h3>
+        <p>Nhấn nút <code>Load unpacked</code> (vừa xuất hiện), sau đó chọn thư mục <strong style="color:#e8c87a">GHN-Helper-Pro</strong> mà bạn đã giải nén ở Bước 1.</p>
+        <p style="font-size:12.5px; color:#6a6a8a">⚠️ Chọn đúng thư mục chứa file <code>manifest.json</code>, không chọn file đơn lẻ.</p>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>✅ Cài đặt hoàn tất!</h3>
+        <p>Tiện ích <strong style="color:#fff">GHN Helper Pro</strong> sẽ xuất hiện trong danh sách. Ghim nó vào thanh công cụ bằng cách nhấn icon 🧩 trên Chrome và ghim.</p>
+        <p>Mở trang <strong style="color:#f6892e">nhanh.ghn.vn</strong>, click vào icon tiện ích và bật toggle <strong style="color:#2ecc71">Đang BẬT</strong> để bắt đầu sử dụng.</p>
+        <div class="toggle-demo" style="margin-top:12px">
+          <div class="toggle-track"></div>
+          <span>GHN Helper — <strong style="color:#2ecc71">Đang BẬT</strong></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FEATURES -->
+  <div class="highlight-box">
+    <h2>🚀 Tính năng của tiện ích</h2>
+    <ul>
+      <li>
+        <span class="badge">KÍCH THƯỚC</span>
+        <span>Hiển thị kích thước kiện hàng (DxRxC) ngay trên bảng danh sách đơn hàng</span>
+      </li>
+      <li>
+        <span class="badge">PHÂN LOẠI</span>
+        <span>Tự động gắn nhãn màu: <strong style="color:#ff4d4f">Tiktok hoàn hàng</strong> / <strong style="color:#ff851b">Shopee hàng hoàn</strong> / <strong style="color:#95a5a6">Shop</strong></span>
+      </li>
+      <li>
+        <span class="badge">TỰ ĐỘNG</span>
+        <span>Chạy nền, không cần thao tác thủ công — chỉ cần bật một lần là xong</span>
+      </li>
+      <li>
+        <span class="badge">BẬT/TẮT</span>
+        <span>Có thể tắt bất cứ lúc nào từ popup, tất cả nhãn được xóa sạch ngay lập tức</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <div class="highlight-box">
+    <h2>❓ Câu hỏi thường gặp</h2>
+    <ul>
+      <li>
+        <span class="badge">LỖI</span>
+        <span>Nếu tiện ích không chạy sau khi bật, hãy <strong style="color:#fff">F5 lại trang GHN</strong> một lần để kết nối lại.</span>
+      </li>
+      <li>
+        <span class="badge">CẬP NHẬT</span>
+        <span>Khi có bản mới, giải nén đè lên thư mục cũ rồi vào trang Extensions nhấn 🔄 Reload là xong.</span>
+      </li>
+      <li>
+        <span class="badge">XÓA</span>
+        <span>Muốn gỡ: vào <code>chrome://extensions</code>, nhấn Remove trên thẻ tiện ích.</span>
+      </li>
+      <li>
+        <span class="badge">EDGE</span>
+        <span>Nếu dùng Microsoft Edge, các bước tương tự — Edge cũng hỗ trợ extension của Chrome.</span>
+      </li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  GHN Helper Pro &nbsp;·&nbsp; Phiên bản <span>1.0</span> &nbsp;·&nbsp; Chỉ hoạt động trên <span>ghn.vn</span>
+</footer>
+
+</body>
+</html>

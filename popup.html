@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; width: 260px; padding: 10px; margin: 0; background-color: #f9f9f9; }
+    h3 { margin-top: 0; font-size: 16px; text-align: center; color: #F26522; border-bottom: 1px solid #ddd; padding-bottom: 8px; }
+    .feature-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; }
+    .feature-item:last-child { border-bottom: none; }
+    .feature-name { font-size: 13px; color: #333; font-weight: 500; }
+    
+    .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+    .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+    input:checked + .slider { background-color: #2ecc71; }
+    input:checked + .slider:before { transform: translateX(20px); }
+    
+    .master-switch { background-color: #eef; padding: 10px; border-radius: 6px; margin-bottom: 10px; font-weight: bold; border: 1px solid #ccd; }
+  </style>
+</head>
+<body>
+  <h3>GHN Helper Pro</h3>
+  
+  <div class="feature-item master-switch">
+    <span class="feature-name" style="font-weight: bold;">TỔNG (Master Switch)</span>
+    <label class="switch">
+      <input type="checkbox" id="toggleGlobal">
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div id="featureList">
+    <div class="feature-item">
+      <span class="feature-name">Hiển thị Size & Nhãn</span>
+      <label class="switch">
+        <input type="checkbox" id="feature_orderInfo">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-item">
+      <span class="feature-name">Ẩn nút Tạo Phiếu Thu</span>
+      <label class="switch">
+        <input type="checkbox" id="feature_hideReceipt">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-item">
+      <span class="feature-name">Nút Xóa Tất Cả</span>
+      <label class="switch">
+        <input type="checkbox" id="feature_bulkDelete">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-item">
+      <span class="feature-name">Auto Đóng Kiện (Popup)</span>
+      <label class="switch">
+        <input type="checkbox" id="feature_autoPacking">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-item">
+      <span class="feature-name">Check Đơn Chờ Trả (Âm thanh)</span>
+      <label class="switch">
+        <input type="checkbox" id="feature_orderChecker">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="feature-item">
+      <span class="feature-name">Báo Nhận Đủ Kiện</span>
+      <label class="switch">
+        <input type="checkbox" id="feature_packageAlert">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <p id="statusText" style="text-align:center; font-size: 12px; margin-top: 10px; color: #e74c3c;">Đang TẮT</p>
+  <script src="popup.js"></script>
+</body>
+</html>
